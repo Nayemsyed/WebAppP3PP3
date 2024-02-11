@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WebAppP3PP3.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StuName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CidNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subj)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StuName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CidNavigation.Cid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subj.SubId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StuRollNo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StuRollNo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StuRollNo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
